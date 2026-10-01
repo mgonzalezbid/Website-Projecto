@@ -1,0 +1,490 @@
+/* ============================================
+   EnglishCards - Estilos Corporativos BID Group
+   ============================================ */
+
+:root {
+  /* Colores BID Group */
+  --primary-dark: #003366;
+  --primary-blue: #0052cc;
+  --accent-teal: #00a8a8;
+  --success-green: #28a745;
+  --danger-red: #dc3545;
+  --neutral-light: #f5f5f5;
+  --neutral-gray: #6c757d;
+  --text-dark: #222;
+  --text-light: #666;
+  --border-light: #ddd;
+  --white: #ffffff;
+
+  /* Espaciado */
+  --spacing-unit: 1rem;
+  --border-radius: 8px;
+
+  /* Fuentes */
+  --font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --font-weight-normal: 400;
+  --font-weight-bold: 600;
+}
+
+/* ============================================
+   RESET Y BASE
+   ============================================ */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  font-family: var(--font-family);
+  color: var(--text-dark);
+  background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);
+}
+
+/* ============================================
+   CONTENEDOR PRINCIPAL
+   ============================================ */
+
+.container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* ============================================
+   HEADER
+   ============================================ */
+
+.header {
+  background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-blue) 100%);
+  color: var(--white);
+  padding: 2rem var(--spacing-unit);
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0, 51, 102, 0.15);
+}
+
+.header-content h1 {
+  font-size: 2.5rem;
+  font-weight: var(--font-weight-bold);
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.5px;
+}
+
+.header .subtitle {
+  font-size: 1rem;
+  opacity: 0.95;
+  font-weight: var(--font-weight-normal);
+}
+
+/* ============================================
+   MAIN CONTENT
+   ============================================ */
+
+.main-content {
+  flex: 1;
+  padding: 2rem var(--spacing-unit);
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* Progress Section */
+.progress-section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.progress-text {
+  font-size: 0.95rem;
+  color: var(--text-light);
+  text-align: center;
+  font-weight: var(--font-weight-bold);
+}
+
+.progress-bar {
+  width: 100%;
+  height: 8px;
+  background: var(--border-light);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent-teal), var(--primary-blue));
+  width: 2%;
+  transition: width 0.3s ease;
+  border-radius: 10px;
+}
+
+/* Card Wrapper & Flip Animation */
+.card-wrapper {
+  perspective: 1000px;
+  height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1rem 0;
+}
+
+.card {
+  width: 100%;
+  max-width: 500px;
+  height: 100%;
+  cursor: pointer;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.6s;
+}
+
+.card.flipped {
+  transform: rotateY(180deg);
+}
+
+.card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+}
+
+.card-front,
+.card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  border-radius: var(--border-radius);
+  box-shadow: 0 8px 24px rgba(0, 51, 102, 0.15);
+  text-align: center;
+}
+
+.card-front {
+  background: var(--white);
+  border: 3px solid var(--primary-blue);
+  color: var(--text-dark);
+}
+
+.card-back {
+  background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-blue) 100%);
+  color: var(--white);
+  transform: rotateY(180deg);
+}
+
+.card-label {
+  font-size: 0.85rem;
+  font-weight: var(--font-weight-bold);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  opacity: 0.7;
+  margin-bottom: 1rem;
+}
+
+.card-text {
+  font-size: 1.8rem;
+  line-height: 1.4;
+  margin: 0;
+  font-weight: var(--font-weight-bold);
+  word-wrap: break-word;
+}
+
+.card-hint {
+  font-size: 0.85rem;
+  opacity: 0.6;
+  margin-top: 2rem;
+  font-style: italic;
+}
+
+/* ============================================
+   BOTONES
+   ============================================ */
+
+.buttons-section,
+.feedback-section,
+.reset-section {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.btn {
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: var(--font-weight-bold);
+  border: none;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.btn:active {
+  transform: translateY(0);
+}
+
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Primary Button */
+.btn-primary {
+  background: linear-gradient(135deg, var(--primary-blue), var(--accent-teal));
+  color: var(--white);
+  min-width: 150px;
+}
+
+.btn-primary:hover:not(:disabled) {
+  box-shadow: 0 6px 16px rgba(0, 82, 204, 0.3);
+}
+
+/* Secondary Button */
+.btn-secondary {
+  background: var(--neutral-light);
+  color: var(--text-dark);
+  border: 2px solid var(--border-light);
+}
+
+.btn-secondary:hover:not(:disabled) {
+  background: var(--border-light);
+  border-color: var(--primary-blue);
+}
+
+/* Feedback Buttons */
+.btn-feedback {
+  flex: 1;
+  min-width: 150px;
+  font-size: 1.1rem;
+  padding: 1rem;
+}
+
+.btn-correct {
+  background: var(--success-green);
+  color: var(--white);
+}
+
+.btn-correct:hover:not(:disabled) {
+  box-shadow: 0 6px 16px rgba(40, 167, 69, 0.3);
+}
+
+.btn-missed {
+  background: #f0f0f0;
+  color: var(--text-dark);
+  border: 2px solid var(--border-light);
+}
+
+.btn-missed:hover:not(:disabled) {
+  background: #e8e8e8;
+  border-color: var(--danger-red);
+}
+
+/* Reset Button */
+.btn-reset {
+  background: var(--neutral-gray);
+  color: var(--white);
+  font-size: 0.95rem;
+}
+
+.btn-reset:hover:not(:disabled) {
+  background: var(--text-light);
+}
+
+/* ============================================
+   STATS SECTION
+   ============================================ */
+
+.stats-section {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  padding: 1.5rem;
+  background: var(--white);
+  border-radius: var(--border-radius);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.stat {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.stat-label {
+  font-size: 0.9rem;
+  color: var(--text-light);
+  font-weight: var(--font-weight-normal);
+}
+
+.stat-value {
+  font-size: 2rem;
+  font-weight: var(--font-weight-bold);
+  color: var(--primary-blue);
+}
+
+/* ============================================
+   FOOTER
+   ============================================ */
+
+.footer {
+  background: var(--primary-dark);
+  color: var(--white);
+  text-align: center;
+  padding: 1.5rem var(--spacing-unit);
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+
+@media (max-width: 768px) {
+  .header-content h1 {
+    font-size: 2rem;
+  }
+
+  .main-content {
+    padding: 1.5rem 1rem;
+    gap: 1.5rem;
+  }
+
+  .card-wrapper {
+    height: 320px;
+  }
+
+  .card-text {
+    font-size: 1.4rem;
+  }
+
+  .card-front,
+  .card-back {
+    padding: 1.5rem;
+  }
+
+  .btn {
+    padding: 0.65rem 1.2rem;
+    font-size: 0.95rem;
+  }
+
+  .btn-feedback {
+    min-width: 120px;
+  }
+
+  .buttons-section {
+    flex-direction: column;
+  }
+
+  .btn-secondary {
+    width: 100%;
+  }
+
+  .stats-section {
+    gap: 2rem;
+  }
+
+  .stat-value {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .header-content h1 {
+    font-size: 1.6rem;
+  }
+
+  .header .subtitle {
+    font-size: 0.9rem;
+  }
+
+  .main-content {
+    padding: 1rem;
+    gap: 1rem;
+  }
+
+  .card-wrapper {
+    height: 280px;
+    margin: 0.5rem 0;
+  }
+
+  .card-text {
+    font-size: 1.2rem;
+  }
+
+  .card-front,
+  .card-back {
+    padding: 1rem;
+  }
+
+  .card-hint {
+    font-size: 0.75rem;
+    margin-top: 1rem;
+  }
+
+  .btn {
+    padding: 0.6rem 1rem;
+    font-size: 0.9rem;
+  }
+
+  .buttons-section,
+  .feedback-section {
+    gap: 0.75rem;
+  }
+
+  .btn-feedback {
+    flex: 1;
+    min-width: auto;
+    font-size: 1rem;
+  }
+
+  .stats-section {
+    gap: 1.5rem;
+    flex-direction: row;
+  }
+
+  .stat-value {
+    font-size: 1.3rem;
+  }
+
+  .footer {
+    font-size: 0.8rem;
+  }
+}
+
+/* Animación de feedback */
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+.card.feedback {
+  animation: pulse 0.3s ease;
+}

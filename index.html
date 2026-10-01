@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EnglishCards - Aprende Inglés con Tarjetas Didácticas</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <header class="header">
+      <div class="header-content">
+        <h1>EnglishCards</h1>
+        <p class="subtitle">Mejora tu vocabulario en inglés</p>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <!-- Progress Bar -->
+      <div class="progress-section">
+        <div class="progress-text">
+          <span id="current-card">1</span> de <span id="total-cards">50</span>
+        </div>
+        <div class="progress-bar">
+          <div id="progress-fill" class="progress-fill"></div>
+        </div>
+      </div>
+
+      <!-- Card Container -->
+      <div class="card-wrapper">
+        <div id="card" class="card">
+          <div class="card-inner">
+            <!-- Front of card (English) -->
+            <div class="card-front">
+              <div class="card-label">Inglés</div>
+              <p id="english-text" class="card-text">Cargando...</p>
+              <div class="card-hint">Haz clic para voltear</div>
+            </div>
+            <!-- Back of card (Translation) -->
+            <div class="card-back">
+              <div class="card-label">Traducción</div>
+              <p id="spanish-text" class="card-text">Cargando...</p>
+              <div class="card-hint">Haz clic para regresar</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Buttons Section -->
+      <div class="buttons-section">
+        <button id="btn-previous" class="btn btn-secondary" aria-label="Tarjeta anterior">
+          ← Anterior
+        </button>
+        <button id="btn-flip" class="btn btn-primary" aria-label="Voltear tarjeta">
+          Voltear
+        </button>
+        <button id="btn-next" class="btn btn-secondary" aria-label="Siguiente tarjeta">
+          Siguiente →
+        </button>
+      </div>
+
+      <!-- Feedback Buttons -->
+      <div class="feedback-section">
+        <button id="btn-missed" class="btn btn-feedback btn-missed" aria-label="No acerté">
+          ❌ No acerté
+        </button>
+        <button id="btn-correct" class="btn btn-feedback btn-correct" aria-label="Acerté">
+          ✅ Acerté
+        </button>
+      </div>
+
+      <!-- Reset Button -->
+      <div class="reset-section">
+        <button id="btn-reset" class="btn btn-reset" aria-label="Reiniciar">
+          🔄 Reiniciar
+        </button>
+      </div>
+
+      <!-- Stats -->
+      <div class="stats-section">
+        <div class="stat">
+          <span class="stat-label">Acertadas:</span>
+          <span id="correct-count" class="stat-value">0</span>
+        </div>
+        <div class="stat">
+          <span class="stat-label">Incorrectas:</span>
+          <span id="incorrect-count" class="stat-value">0</span>
+        </div>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <p>© 2024 BID Tecnología. EnglishCards v1.0</p>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
